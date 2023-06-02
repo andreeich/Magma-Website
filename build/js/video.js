@@ -42,6 +42,9 @@ const addVideoOverlay = (overlay) => {
 videoOverlays.forEach((overlay) => {
   videoContainer = overlay.previousElementSibling;
   video = videoContainer.querySelector(".video-box__video");
+  video_fullscreen = videoContainer.querySelector(
+    ".video-box__video.video-fullscreen"
+  );
   videoText = overlay.nextElementSibling;
 
   overlay.addEventListener("click", (e) => {
@@ -169,5 +172,10 @@ videoOverlays.forEach((overlay) => {
         }
       }
     }
+  });
+  video_fullscreen.addEventListener("pause", () => {
+    console.log("pause");
+    video.controls = false;
+    addVideoOverlay(overlay);
   });
 });

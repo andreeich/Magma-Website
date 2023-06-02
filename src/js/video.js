@@ -130,6 +130,8 @@ videoOverlays.forEach((overlay) => {
       );
 
       function changeFullScreenHandler() {
+        console.log("into fullscreen ufnction");
+
         if (
           !document.fullscreenElement &&
           !document.webkitIsFullScreen &&
@@ -150,6 +152,8 @@ videoOverlays.forEach((overlay) => {
           video.controls = false;
           addVideoOverlay(overlay);
           video.pause();
+
+          console.log("exit fullscreen");
         } else {
           if (video.requestFullScreen) {
             video.requestFullScreen();
